@@ -3,10 +3,12 @@ interface UserProps {
   age: number;
 }
 
+type UserReturn = number | string;
+
 export class User {
   constructor(private data: UserProps) {}
 
-  get(propName: string) {
+  get(propName: "name" | "age"): UserReturn {
     return this.data[propName];
   }
 }
