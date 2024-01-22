@@ -1,8 +1,12 @@
 interface UserProps {
-  name: "string";
+  name: string;
   age: number;
 }
 
 export class User {
-  constructor(private user: UserProps) {}
+  constructor(private data: UserProps) {}
+
+  get(propName: string) {
+    return this.data[propName];
+  }
 }
