@@ -35,6 +35,6 @@ export class User {
       return;
     }
 
-    console.log(handlers);
+    handlers.forEach((callback) => callback());
   }
 }
