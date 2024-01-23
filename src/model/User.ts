@@ -5,9 +5,11 @@ interface UserProps {
 
 type UserReturn = number | string;
 
-type Callback = () => {};
+type Callback = () => void;
 
 export class User {
+  events: { [eventName: string]: Callback[] } = {};
+
   constructor(private data: UserProps) {}
 
   get(propName: "name" | "age"): UserReturn {
