@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start:server": "json-server -w db.json"
   },
   "devDependencies": {
     "typescript": "^5.0.2",
