@@ -15,3 +15,5 @@ user.on("save", () => {
 });
 
 user.trigger("change");
+
+user.trigger("save");
