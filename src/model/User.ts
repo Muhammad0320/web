@@ -5,6 +5,8 @@ interface UserProps {
 
 type UserReturn = number | string;
 
+type Callback = () => {};
+
 export class User {
   constructor(private data: UserProps) {}
 
@@ -15,4 +17,6 @@ export class User {
   set(newData: UserProps) {
     Object.assign(this.data, newData);
   }
+
+  on(eventName: string, callback: Callback) {}
 }
