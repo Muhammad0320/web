@@ -20,5 +20,11 @@ export class User {
     Object.assign(this.data, newData);
   }
 
-  on(eventName: string, callback: Callback) {}
+  on(eventName: string, callback: Callback): void {
+    const handlers = this.events[eventName] || [];
+
+    handlers.push(callback);
+
+    this.events[eventName] = handlers;
+  }
 }
