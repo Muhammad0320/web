@@ -22,4 +22,6 @@ import "./style.css";
 
 const user = new User({ id: "04c5" });
 
-await user.fetch();
+user.set({ name: "Testing", age: 55 });
+
+user.save();
