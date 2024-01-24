@@ -27,7 +27,7 @@ export class User {
 
     this.events[eventName] = handlers;
   }
-
+    
   trigger(eventName: string) {
     const handlers = this.events[eventName];
 
