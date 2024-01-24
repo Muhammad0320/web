@@ -1,8 +1,6 @@
-// import { User } from "./model/User";
+import { User } from "./model/User";
 
 import "./style.css";
-
-import axios from "axios";
 
 // const user = new User({ name: "max", age: 30 });
 
@@ -22,7 +20,6 @@ import axios from "axios";
 
 // user.trigger("save");
 
-axios.post("http://localhost:3000/users", {
-  name: "Muhammad",
-  age: 19,
-});
+const user = new User({ id: "04c5" });
+
+await user.fetch();
