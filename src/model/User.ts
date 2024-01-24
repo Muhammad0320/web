@@ -7,8 +7,6 @@ export interface UserProps {
   id?: string;
 }
 
-type UserReturn = number | string;
-
 const rootUrl = "http://localhost:3000/users";
 
 export class User {
@@ -18,8 +16,8 @@ export class User {
 
   constructor(private data: UserProps) {}
 
-  get(propName: "name" | "age" | "id"): UserReturn {
-    return this.data[propName]!;
+  get(propName: string): number | string {
+    return this.data[propName];
   }
 
   set(newData: UserProps) {
