@@ -1,19 +1,28 @@
-import { User } from "./model/User";
+// import { User } from "./model/User";
 
-const user = new User({ name: "max", age: 30 });
+import "./style.css";
 
-user.on("change", () => {
-  console.log("Change #1");
+import axios from "axios";
+
+// const user = new User({ name: "max", age: 30 });
+
+// user.on("change", () => {
+//   console.log("Change #1");
+// });
+
+// user.on("change", () => {
+//   console.log("Change #2");
+// });
+
+// user.on("save", () => {
+//   console.log("Save #1");
+// });
+
+// user.trigger("change");
+
+// user.trigger("save");
+
+axios.post("http://localhost:3000/users", {
+  name: "Muhammad",
+  age: 19,
 });
-
-user.on("change", () => {
-  console.log("Change #2");
-});
-
-user.on("save", () => {
-  console.log("Save #1");
-});
-
-user.trigger("change");
-
-user.trigger("save");
