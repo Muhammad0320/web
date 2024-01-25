@@ -1,6 +1,6 @@
 import { Attributes } from "./Attributes";
 import { Eventing } from "./Eventing";
-import { Sync } from "./Sync";
+import { ApiSync } from "./ApiSync";
 
 export interface UserProps {
   name?: string;
@@ -13,7 +13,7 @@ const rootUrl = "http://localhost:3000/users";
 export class User {
   public events: Eventing = new Eventing();
 
-  public sync: Sync<UserProps> = new Sync(rootUrl);
+  public sync: ApiSync<UserProps> = new ApiSync(rootUrl);
 
   public attribute: Attributes<UserProps>;
 
