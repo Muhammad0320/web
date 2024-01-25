@@ -25,7 +25,7 @@ interface HasId {
   id?: string;
 }
 
-class Model<T extends HasId> {
+export class Model<T extends HasId> {
   constructor(
     public attribute: ModelAtributes<T>,
     public sync: Sync<T>,
