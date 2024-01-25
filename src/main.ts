@@ -20,6 +20,6 @@ import "./style.css";
 
 // user.trigger("save");
 
-const user = new User({ name: "new name", age: 83293 });
+// const user = new User({ name: "new name", age: 83293 });
 
-user.save();
+// user.save();

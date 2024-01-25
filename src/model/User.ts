@@ -1,3 +1,4 @@
+import { Attributes } from "./Attributes";
 import { Eventing } from "./Eventing";
 import { Sync } from "./Sync";
 
@@ -14,13 +15,9 @@ export class User {
 
   public sync: Sync<UserProps> = new Sync(rootUrl);
 
-  constructor(private data: UserProps) {}
+  public attribute: Attributes<UserProps>;
 
-  get(propName: string): number | string {
-    return this.data[propName];
-  }
-
-  set(newData: UserProps) {
-    Object.assign(this.data, newData);
+  constructor(attrs: UserProps) {
+    this.attribute = new Attributes<UserProps>(attrs);
   }
 }
