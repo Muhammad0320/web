@@ -32,4 +32,22 @@ export class User {
   get get() {
     return this.attribute.get;
   }
+
+  set(data: UserProps) {
+    this.attribute.set(data);
+
+    this.trigger("change");
+  }
+
+  async fetch() {
+    const id = this.get("id");
+
+    if (!id) {
+      throw new Error(" There is no user with this id  ");
+    }
+
+    const data = (await this.sync.fetch(id)) as UserProps;
+
+    this.set(data);
+  }
 }
