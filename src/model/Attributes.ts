@@ -5,6 +5,10 @@ export class Attributes<T extends Object> {
     return this.data[key];
   };
 
+  getAll(): T {
+    return this.data;
+  }
+
   set(newData: T) {
     Object.assign(this.data, newData);
   }
