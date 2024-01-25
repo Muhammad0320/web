@@ -51,13 +51,9 @@ export class Model<T extends HasId> {
       throw new Error(" There is no user with this id  ");
     }
 
-    const data = await this.sync.fetch(id);
+    const data = (await this.sync.fetch(id)) as unknown;
 
-    console.log(data.data);
-
-    console.log(data);
-
-    // this.set(data.data);
+    this.set(data as T);
   }
 
   async save() {
