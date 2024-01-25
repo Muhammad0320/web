@@ -52,7 +52,9 @@ export class User {
   }
 
   async save() {
-    await this.sync.save(this.attribute.getAll);
+    console.log(this.attribute.getAll());
+
+    await this.sync.save(this.attribute.getAll());
 
     this.trigger("save");
   }
