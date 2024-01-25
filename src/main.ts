@@ -2,10 +2,10 @@ import { User } from "./model/User";
 
 import "./style.css";
 
-const user = new User({ id: "04c5" });
+const user = new User({ id: "04c5", name: "Just a name", age: 36 });
 
-user.on("change", () => {
-  console.log("User data was changed");
+user.on("save", () => {
+  console.log("User data was saved");
 });
 
-user.fetch();
+user.save();

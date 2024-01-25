@@ -50,4 +50,10 @@ export class User {
 
     this.set(data);
   }
+
+  async save() {
+    await this.sync.save(this.attribute.getAll);
+
+    this.trigger("save");
+  }
 }
