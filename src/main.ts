@@ -2,24 +2,6 @@ import { User } from "./model/User";
 
 import "./style.css";
 
-// const user = new User({ name: "max", age: 30 });
+const user = new User({ name: "max", age: 30 });
 
-// user.on("change", () => {
-//   console.log("Change #1");
-// });
-
-// user.on("change", () => {
-//   console.log("Change #2");
-// });
-
-// user.on("save", () => {
-//   console.log("Save #1");
-// });
-
-// user.trigger("change");
-
-// user.trigger("save");
-
-// const user = new User({ name: "new name", age: 83293 });
-
-// user.save();
+user.get("age");
