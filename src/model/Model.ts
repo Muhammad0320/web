@@ -1,5 +1,5 @@
 import { AxiosPromise } from "axios";
-import { Callback } from "./Eventing";
+import { Callback, Eventing } from "./Eventing";
 
 interface ModelAtributes<T> {
   getAll(): T;
@@ -32,17 +32,11 @@ export class Model<T extends HasId> {
     public events: Events
   ) {}
 
-  get on() {
-    return this.events.on;
-  }
+  on = this.events.on;
 
-  get trigger() {
-    return this.events.trigger;
-  }
+  trigger = this.events.trigger;
 
-  get get() {
-    return this.attribute.get;
-  }
+  get = this.attribute.get;
 
   set(data: T) {
     this.attribute.set(data);
