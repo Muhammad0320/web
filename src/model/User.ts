@@ -1,6 +1,7 @@
 import { Attributes } from "./Attributes";
 import { Eventing } from "./Eventing";
 import { ApiSync } from "./ApiSync";
+import { Model } from "./Model";
 
 export interface UserProps {
   name?: string;
@@ -10,52 +11,12 @@ export interface UserProps {
 
 const rootUrl = "http://localhost:3000/users";
 
-export class User {
-  public events: Eventing = new Eventing();
-
-  public sync: ApiSync<UserProps> = new ApiSync(rootUrl);
-
-  public attribute: Attributes<UserProps>;
-
-  constructor(attrs: UserProps) {
-    this.attribute = new Attributes<UserProps>(attrs);
-  }
-
-  get on() {
-    return this.events.on;
-  }
-
-  get trigger() {
-    return this.events.trigger;
-  }
-
-  get get() {
-    return this.attribute.get;
-  }
-
-  set(data: UserProps) {
-    this.attribute.set(data);
-
-    this.trigger("change");
-  }
-
-  async fetch() {
-    const id = this.get("id");
-
-    if (!id) {
-      throw new Error(" There is no user with this id  ");
-    }
-
-    const data = (await this.sync.fetch(id)) as UserProps;
-
-    this.set(data);
-  }
-
-  async save() {
-    console.log(this.attribute.getAll());
-
-    await this.sync.save(this.attribute.getAll());
-
-    this.trigger("save");
+export class User extends Model<UserProps> {
+  static buildUser(attrs: UserProps): User {
+    return new User(
+      new Attributes<UserProps>(attrs),
+      new ApiSync<UserProps>(rootUrl),
+      new Eventing()
+    );
   }
 }
