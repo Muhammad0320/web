@@ -1,11 +1,9 @@
-import { User } from "./model/User";
+import { Collections } from "./model/Collections";
 
-import "./style.css";
+const collection = new Collections("http://localhost:3000/users");
 
-const user = User.buildUser({ id: "04c5", name: "Just a name", age: 36 });
-
-user.on("save", () => {
-  console.log("User data was saved");
+collection.on("change", () => {
+  console.log(collection);
 });
 
-user.fetch();
+collection.fetch();

@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import { Eventing } from "./Eventing";
 import { User, UserProps } from "./User";
 
-export class collections {
+export class Collections {
   models: User[] = [];
 
   events: Eventing;
