@@ -1,4 +1,5 @@
 import { User } from "./model/User";
+import { UserForm } from "./views/UserForm";
 
 const collection = User.buildUserCollection();
 
@@ -8,4 +9,6 @@ collection.on("change", () => {
 
 collection.fetch();
 
-new USerForm(document.getElementById("app")!);
+const form = new UserForm(document.getElementById("app")!);
+
+form.render();

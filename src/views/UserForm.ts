@@ -1,4 +1,4 @@
-class USerForm {
+export class UserForm {
   constructor(public parent: Element) {}
 
   template(): string {
@@ -13,8 +13,10 @@ class USerForm {
         `;
   }
 
-  render() {
+  render(): void {
     const templateElemnt = document.createElement("template");
+
+    templateElemnt.innerHTML = this.template();
 
     this.parent.appendChild(templateElemnt.content);
   }
