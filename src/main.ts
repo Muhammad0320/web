@@ -7,3 +7,5 @@ collection.on("change", () => {
 });
 
 collection.fetch();
+
+new USerForm(document.getElementById("app")!);
