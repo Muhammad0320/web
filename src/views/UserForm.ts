@@ -10,14 +10,26 @@ export class UserForm {
         `;
   }
 
+  onButtonClick(): void {
+    console.log("Hello world");
+  }
+
   eventsMap(): { [key: string]: () => void } {
     return {
       "click:button": this.onButtonClick,
     };
   }
 
-  onButtonClick(): void {
-    console.log("Hello world");
+  buildEvents(fragment: DocumentFragment): void {
+    const eventsMap = this.eventsMap();
+
+    for (let eventKey in eventsMap) {
+      const [eventName, selector] = eventKey.split(":");
+
+      fragment.querySelectorAll(selector).forEach((element) => {
+        element.addEventListener(eventName, eventsMap[eventKey]);
+      });
+    }
   }
 
   render(): void {
