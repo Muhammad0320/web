@@ -36,11 +36,13 @@ export class UserForm {
   }
 
   onSetName = (): void => {
-    const input = this.parent.querySelector("input")!;
+    const input = this.parent.querySelector("input");
 
-    const name = input.value;
+    if (input) {
+      const name = input.value;
 
-    this.model.set({ name });
+      this.model.set({ name });
+    }
   };
 
   buildEvents(fragment: DocumentFragment): void {
