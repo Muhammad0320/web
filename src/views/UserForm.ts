@@ -12,9 +12,7 @@ export class UserForm {
 
   eventsMap(): { [key: string]: () => void } {
     return {
-      "click:button": () => {
-        console.log("Hello word");
-      },
+      "click:button": this.onButtonClick,
     };
   }
 
