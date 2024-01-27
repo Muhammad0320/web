@@ -1,12 +1,14 @@
 import { HasId, Model } from "../model/Model";
 
 export abstract class Views<T extends Model<K>, K extends HasId> {
-  abstract eventsMap(): { [key: string]: () => void };
-
   abstract template(): string;
 
   constructor(public parent: Element, public model: T) {
     this.bindModel();
+  }
+
+  eventsMap(): { [key: string]: () => void } {
+    return {};
   }
 
   bindModel(): void {
