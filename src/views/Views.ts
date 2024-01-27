@@ -7,6 +7,10 @@ export abstract class Views<T extends Model<K>, K extends HasId> {
     this.bindModel();
   }
 
+  regions: { [key: string]: Element };
+
+  regionsMap: () => { [key: string]: string };
+
   eventsMap(): { [key: string]: () => void } {
     return {};
   }
@@ -15,6 +19,20 @@ export abstract class Views<T extends Model<K>, K extends HasId> {
     this.model.on("change", () => {
       this.render();
     });
+  }
+
+  mapRegions(fragments: DocumentFragment): void {
+    const regionsMaps = this.regionsMap();
+
+    for (let key in regionsMaps) {
+      const selector = regionsMaps[key];
+
+      const element = fragments.querySelector(selector);
+
+      if (element) {
+        this.regions[key] = element;
+      }
+    }
   }
 
   buildEvents(fragment: DocumentFragment): void {
