@@ -3,14 +3,23 @@ export class UserForm {
 
   template(): string {
     return `
-
                 <div> 
                     <h1> User Form </h1> 
-                    
                     <input />
               </div>
-
         `;
+  }
+
+  eventsMap(): { [key: string]: () => void } {
+    return {
+      "click:button": () => {
+        console.log("Hello word");
+      },
+    };
+  }
+
+  onButtonClick(): void {
+    console.log("Hello world");
   }
 
   render(): void {
@@ -18,6 +27,10 @@ export class UserForm {
 
     templateElemnt.innerHTML = this.template();
 
+    console.log(templateElemnt);
+
     this.parent.appendChild(templateElemnt.content);
   }
 }
+
+// Muhammawwal@005
