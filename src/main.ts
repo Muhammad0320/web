@@ -8,5 +8,7 @@ const app = document.getElementById("app");
 if (app) {
   const userEdit = new UserEdits(app, user);
 
+  console.log(userEdit);
+
   userEdit.render();
 }
