@@ -1,5 +1,11 @@
-export abstract class Views {
-  constructor(public parent: Element, public model: User) {
+import { HasId, Model } from "../model/Model";
+
+export abstract class Views<T extends Model<K>, K extends HasId> {
+  abstract eventsMap(): { [key: string]: () => void };
+
+  abstract template(): string;
+
+  constructor(public parent: Element, public model: T) {
     this.bindModel();
   }
 
