@@ -11,6 +11,10 @@ collection.fetch();
 
 const user = User.buildUser({ name: "Khabib", age: 32 });
 
-const form = new UserForm(document.getElementById("app")!, user);
+const app = document.getElementById("app");
 
-form.render();
+if (app) {
+  const form = new UserForm(app, user);
+
+  form.render();
+}

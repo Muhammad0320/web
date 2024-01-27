@@ -9,7 +9,7 @@ export class Attributes<T extends Object> {
     return this.data;
   }
 
-  set(newData: T) {
+  set(newData: T): void {
     Object.assign(this.data, newData);
   }
 }
