@@ -9,6 +9,8 @@ collection.on("change", () => {
 
 collection.fetch();
 
-const form = new UserForm(document.getElementById("app")!);
+const user = User.buildUser({ name: "Khabib", age: 32 });
+
+const form = new UserForm(document.getElementById("app")!, user);
 
 form.render();
