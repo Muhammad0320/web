@@ -8,9 +8,9 @@ export class UserForm {
                 <div> 
                     <h1> User Form </h1> 
                     <div>  User Name: ${this.model.get("name")}  </div>
-                    <div>  User afe: ${this.model.get("age")}  </div>
+                    <div>  User age: ${this.model.get("age")}  </div>
                     <input />
-                    <button> Click mw abeg </button>
+                    <button> Click me abeg </button>
               </div>
         `;
   }
@@ -42,7 +42,7 @@ export class UserForm {
 
     templateElemnt.innerHTML = this.template();
 
-    console.log(templateElemnt);
+    this.buildEvents(templateElemnt.content);
 
     this.parent.appendChild(templateElemnt.content);
   }
