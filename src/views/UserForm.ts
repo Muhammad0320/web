@@ -19,10 +19,15 @@ export class UserForm extends Views<User, UserProps> {
     this.model.setRandomAge();
   };
 
+  onSaveInput = (): void => {
+    this.model.save();
+  };
+
   eventsMap(): { [key: string]: () => void } {
     return {
       "click:.set-age": this.onSetAge,
       "click:.set-name": this.onSetName,
+      "click:set-save": this.onSetAge,
     };
   }
 
