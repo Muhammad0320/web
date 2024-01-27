@@ -32,9 +32,9 @@ export class Model<T extends HasId> {
     private events: Events
   ) {}
 
-  on = this.events.on;
-
   trigger = this.events.trigger;
+
+  on = this.events.on;
 
   get = this.attribute.get;
 
