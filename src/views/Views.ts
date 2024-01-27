@@ -9,7 +9,9 @@ export abstract class Views<T extends Model<K>, K extends HasId> {
 
   regions: { [key: string]: Element };
 
-  regionsMap: () => { [key: string]: string };
+  regionsMap(): { [key: string]: string } {
+    return {};
+  }
 
   eventsMap(): { [key: string]: () => void } {
     return {};
