@@ -1,5 +1,5 @@
 import { AxiosPromise } from "axios";
-import { Callback, Eventing } from "./Eventing";
+import { Callback } from "./Eventing";
 
 interface ModelAtributes<T> {
   getAll(): T;
