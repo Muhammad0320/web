@@ -2,6 +2,13 @@ import { User, UserProps } from "../model/User";
 import { Views } from "./Views";
 
 export class UserEdits extends Views<User, UserProps> {
+  regionsMap(): { [key: string]: string } {
+    return {
+      userShow: ".user-show",
+      userForm: ".user-form",
+    };
+  }
+
   template(): string {
     return `
                         <div> 
