@@ -49,6 +49,8 @@ export abstract class Views<T extends Model<K>, K extends HasId> {
     }
   }
 
+  onRender(): void {}
+
   render(): void {
     this.parent.innerHTML = " ";
 
@@ -57,6 +59,10 @@ export abstract class Views<T extends Model<K>, K extends HasId> {
     templateElemnt.innerHTML = this.template();
 
     this.buildEvents(templateElemnt.content);
+
+    this.mapRegions(templateElemnt.content);
+
+    this.onRender();
 
     this.parent.appendChild(templateElemnt.content);
   }
